@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#0E1014" />
+<title>Bản tin sáng — 30 tháng 6, 2026</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Fraunces:ital,opsz,wght@1,9..144,500;1,9..144,600&display=swap');
+  :root{
+    --bg:#F2F3F5; --panel:#fff; --ink:#15181D; --muted:#646B75; --line:#E6E8EB; --soft:#F7F8F9;
+    --vn:#C8453B; --world:#3B6CA8; --tech:#0F8F86; --gold:#B8893A;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{--bg:#0E1014; --panel:#171A20; --ink:#ECEEF1; --muted:#9AA2AD; --line:#262A31; --soft:#1D2127;}
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{margin:0; background:var(--bg); color:var(--ink);
+    font-family:'Be Vietnam Pro',system-ui,sans-serif; -webkit-font-smoothing:antialiased;
+    padding:20px 14px 60px;}
+  .wrap{max-width:1180px; margin:0 auto;}
+  header{background:var(--panel); border:1px solid var(--line); border-radius:20px;
+    padding:22px 22px 20px; margin-bottom:14px; box-shadow:0 1px 2px rgba(0,0,0,.03);}
+  .eyebrow{font-family:'IBM Plex Mono',monospace; font-size:11.5px; letter-spacing:.16em;
+    text-transform:uppercase; color:var(--muted);}
+  h1{font-size:clamp(30px,7vw,46px); font-weight:800; letter-spacing:-.025em; line-height:1.02; margin:8px 0 6px;}
+  .gen{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--muted);}
+  .quote{position:relative; overflow:hidden; border-radius:20px; margin-bottom:16px;
+    padding:30px 26px; color:#fff; min-height:128px; display:flex; flex-direction:column; justify-content:center;
+    background:linear-gradient(135deg,#1c2742 0%,#2a3a5e 45%,#3a2a4e 100%);
+    box-shadow:0 8px 26px rgba(20,28,52,.22);}
+  .quote::before{content:"\201C"; position:absolute; top:-22px; left:14px; font-family:'Fraunces',serif;
+    font-size:150px; line-height:1; color:rgba(255,255,255,.10);}
+  .qlabel{font-family:'IBM Plex Mono',monospace; font-size:10.5px; letter-spacing:.22em;
+    text-transform:uppercase; color:rgba(255,255,255,.55); margin-bottom:10px;}
+  .qtext{font-family:'Fraunces',Georgia,serif; font-style:italic; font-weight:500;
+    font-size:clamp(18px,3.4vw,25px); line-height:1.4; transition:opacity .5s ease; position:relative; z-index:1;}
+  .qauthor{margin-top:12px; font-size:13px; font-weight:600; color:rgba(255,255,255,.78); transition:opacity .5s ease;}
+  .qauthor::before{content:"— ";}
+  .toolbar{display:flex; flex-wrap:wrap; align-items:center; gap:12px;
+    background:var(--panel); border:1px solid var(--line); border-radius:16px; padding:13px 16px; margin-bottom:16px;}
+  .progress{flex:1; min-width:160px;}
+  .ptrack{height:7px; border-radius:5px; background:var(--soft); overflow:hidden; border:1px solid var(--line);}
+  .pfill{height:100%; width:0%; border-radius:5px; background:linear-gradient(90deg,var(--tech),var(--world)); transition:width .35s ease;}
+  .pstat{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--muted); margin-top:7px;}
+  .pstat b{color:var(--ink);}
+  .heart-stat{color:var(--vn); font-weight:700;}
+  .btn-export{font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:500; cursor:pointer;
+    border:1px solid var(--line); background:var(--soft); color:var(--ink); border-radius:10px; padding:9px 14px; transition:.15s; white-space:nowrap;}
+  .btn-export:hover{border-color:var(--tech); color:var(--tech);}
+  .btn-export:active{transform:translateY(1px);}
+  .channels{display:grid; gap:14px; grid-template-columns:1fr;}
+  @media(min-width:1024px){.channels{grid-template-columns:repeat(3,1fr); align-items:start;}}
+  .ch{background:var(--panel); border:1px solid var(--line); border-radius:18px;
+    border-top:3px solid var(--ch); padding:16px 16px 8px; box-shadow:0 1px 2px rgba(0,0,0,.03);}
+  .chead{display:flex; align-items:center; gap:9px; padding:2px 2px 12px;}
+  .chead h2{font-size:17px; font-weight:700; margin:0; letter-spacing:-.01em;}
+  .dot{width:8px; height:8px; border-radius:50%; background:var(--ch);}
+  .count{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--muted); margin-left:auto;}
+  .body{position:relative; padding:4px 2px 12px 22px;}
+  .body::before{content:""; position:absolute; left:9px; top:6px; bottom:14px; width:2px; background:linear-gradient(var(--ch),transparent); opacity:.35;}
+  .item{position:relative; padding:0 2px 20px;}
+  .item::before{content:""; position:absolute; left:-17px; top:6px; width:9px; height:9px;
+    border-radius:50%; background:var(--panel); border:2px solid var(--ch); transition:.2s;}
+  .item.read::before{background:var(--ch);}
+  .item h3{font-size:15.5px; font-weight:700; line-height:1.32; margin:0 0 6px; letter-spacing:-.01em; transition:.2s;}
+  .item p{font-size:13.7px; line-height:1.55; color:var(--muted); margin:0 0 10px;}
+  .item.read h3{color:var(--muted);}
+  .src{font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:var(--ch); text-decoration:none; font-weight:500;}
+  .src:hover{text-decoration:underline;}
+  .acts{display:flex; gap:8px; margin-top:10px;}
+  .chip{display:inline-flex; align-items:center; gap:5px; cursor:pointer; user-select:none;
+    font-family:'IBM Plex Mono',monospace; font-size:11px; font-weight:500; letter-spacing:.02em;
+    border:1px solid var(--line); background:var(--soft); color:var(--muted); border-radius:20px; padding:6px 11px; transition:.15s;}
+  .chip:hover{border-color:var(--ch); color:var(--ink);}
+  .chip:active{transform:translateY(1px);}
+  .chip.on-read{background:var(--ch); border-color:var(--ch); color:#fff;}
+  .chip.on-like{background:var(--vn); border-color:var(--vn); color:#fff;}
+  .chip .ic{font-size:12px; line-height:1;}
+  footer{font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:var(--muted); text-align:center; line-height:1.6; margin-top:22px;}
+  .toast{position:fixed; left:50%; bottom:26px; transform:translateX(-50%) translateY(20px);
+    background:var(--ink); color:var(--bg); font-size:13px; font-weight:500; padding:11px 18px; border-radius:12px;
+    opacity:0; pointer-events:none; transition:.3s; box-shadow:0 8px 24px rgba(0,0,0,.25); z-index:50; max-width:90vw;}
+  .toast.show{opacity:1; transform:translateX(-50%) translateY(0);}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Bản tin sáng · Thứ Ba</div>
+    <h1>30 tháng 6, 2026</h1>
+    <div class="gen">Cập nhật 15:14 (giờ VN) · 3 kênh · 26 tin</div>
+  </header>
+  <div class="quote" id="quoteCard" title="Chạm để đổi câu khác">
+    <div class="qlabel">Câu của ngày</div>
+    <div class="qtext" id="qtext"></div>
+    <div class="qauthor" id="qauthor"></div>
+  </div>
+  <div class="toolbar">
+    <div class="progress">
+      <div class="ptrack"><div class="pfill" id="pfill"></div></div>
+      <div class="pstat">Đã đọc <b id="readN">0</b>/26 · <span class="heart-stat">♥ <b id="likeN">0</b> thích</span></div>
+    </div>
+    <button class="btn-export" id="exportBtn">📋 Sao chép nhật ký</button>
+  </div>
+  <div class="channels">
+    <section class="ch" style="--ch:var(--vn)">
+      <div class="chead"><span class="dot"></span><h2>Việt Nam</h2><span class="count">8</span></div>
+      <div class="body">
+        <article class="item" data-id="vn1"><h3>Chính phủ chốt kịch bản tăng trưởng: nửa cuối năm phải đạt 11,9%</h3><p>Nghị quyết 168/NQ-CP (27/6) đặt mục tiêu GDP cả năm 2026 tăng từ 10% trở lên, đồng nghĩa 6 tháng cuối năm phải tăng 11,9%. Sản xuất điện, xây dựng và dịch vụ lưu trú được giao mức 16–17%; Hà Nội và TPHCM lần lượt 11% và 10,2%.</p><a class="src" href="https://dantri.com.vn/thoi-su/chinh-phu-dat-muc-tieu-tang-truong-gdp-119-trong-6-thang-cuoi-nam-20260628192732627.htm" target="_blank" rel="noreferrer">Dân trí ↗</a></article>
+        <article class="item" data-id="vn2"><h3>Hà Nội công bố quy hoạch tầm nhìn 100 năm, mời đầu tư 276 dự án</h3><p>Tại hội nghị 29/6, Hà Nội công bố quy hoạch tổng thể trên hơn 3.359 km² với 9 cực tăng trưởng, 9 trung tâm và 9 trục động lực; kêu gọi đầu tư vào 276 dự án và ký 50 biên bản ghi nhớ với doanh nghiệp trong, ngoài nước.</p><a class="src" href="https://dantri.com.vn/event/quy-hoach-ha-noi-tam-nhin-100-nam-9762.htm" target="_blank" rel="noreferrer">Dân trí ↗</a></article>
+        <article class="item" data-id="vn3"><h3>Hà Nội vận hành 2.460 camera AI tại 238 nút giao từ 1/7</h3><p>Từ ngày 1/7, Hà Nội đưa vào hoạt động hệ thống 2.460 camera tích hợp AI tại 238 nút giao trọng điểm để giám sát, phạt nguội vi phạm giao thông và bảo đảm an ninh, trật tự.</p><a class="src" href="https://baomoi.com/tin-tuc-dac-biet-tren-an-pham-hanoimoi-ngay-30-6-2026-c55507566.epi" target="_blank" rel="noreferrer">Hànộimới ↗</a></article>
+        <article class="item" data-id="vn4"><h3>Việt Nam cử đoàn cứu hộ sang Venezuela sau động đất</h3><p>Rạng sáng 29/6, chuyến bay đặc biệt đưa 124 cán bộ, chiến sĩ cùng 10 chó nghiệp vụ và 25 tấn trang thiết bị, hàng cứu trợ tới Venezuela tham gia tìm kiếm cứu nạn, hỗ trợ nhân đạo sau động đất nghiêm trọng.</p><a class="src" href="https://dantri.com.vn/event/dong-dat-du-doi-tai-venezuela-9761.htm" target="_blank" rel="noreferrer">Dân trí ↗</a></article>
+        <article class="item" data-id="vn5"><h3>Bộ Chính trị yêu cầu sửa chính sách hình sự lĩnh vực kinh tế, công nghệ</h3><p>Bộ Chính trị yêu cầu rà soát, sửa đổi chính sách hình sự với vi phạm trong lĩnh vực kinh tế và công nghệ theo hướng phù hợp thực tiễn, bảo vệ quyền tài sản và khuyến khích đổi mới.</p><a class="src" href="https://dantri.com.vn/thoi-su/bo-chinh-tri-yeu-cau-sua-chinh-sach-hinh-su-linh-vuc-kinh-te-cong-nghe-20260629123116960.htm" target="_blank" rel="noreferrer">Dân trí ↗</a></article>
+        <article class="item" data-id="vn6"><h3>Điều chỉnh Chiến lược tài chính đến năm 2030: nới trần nợ</h3><p>Quyết định 1119/QĐ-TTg (23/6) nâng mục tiêu huy động ngân sách 2026–2030 lên khoảng 18% GDP, nâng trần nợ nước ngoài quốc gia từ 45% lên 50% GDP và nới bội chi tới khoảng 5% GDP để có dư địa cho đầu tư.</p><a class="src" href="https://baomoi.com/dieu-chinh-bo-sung-nhieu-muc-tieu-giai-phap-trong-chien-luoc-tai-chinh-den-nam-2030-c55470026.epi" target="_blank" rel="noreferrer">Báo Chính phủ ↗</a></article>
+        <article class="item" data-id="vn7"><h3>Triển khai dịch vụ công lưu động sau vụ "bắt cụ già lên phường"</h3><p>Sau vụ việc một cụ già phải lên phường làm thủ tục gây bức xúc (26/6), nhiều địa phương triển khai dịch vụ công lưu động, đưa cán bộ tới tận nhà hỗ trợ người già, người yếu thế.</p><a class="src" href="https://dantri.com.vn/thoi-su/sau-vu-bat-cu-gia-den-phuong-lam-thu-tuc-trien-khai-dich-vu-cong-luu-dong-20260626183156210.htm" target="_blank" rel="noreferrer">Dân trí ↗</a></article>
+        <article class="item" data-id="vn8"><h3>Quy định mới xử lý nhà, đất dôi dư sau sáp nhập</h3><p>Chính phủ ban hành quy định mới (25/6): với nhà, đất dôi dư sau sáp nhập thuộc diện chuyển về địa phương quản lý, người có thẩm quyền được xử lý nguyên trạng, không cần thủ tục lấy ý kiến chủ tịch cấp tỉnh.</p><a class="src" href="https://dantri.com.vn/thoi-su/chinh-phu-ra-quy-dinh-moi-xu-ly-nha-dat-doi-du-trong-truong-hop-dac-biet-20260625071438300.htm" target="_blank" rel="noreferrer">Dân trí ↗</a></article>
+      </div>
+    </section>
+    <section class="ch" style="--ch:var(--world)">
+      <div class="chead"><span class="dot"></span><h2>Thế giới</h2><span class="count">8</span></div>
+      <div class="body">
+        <article class="item" data-id="w1"><h3>Eo biển Hormuz: Mỹ và Iran tạm ngừng giao tranh, dời đàm phán sang Qatar</h3><p>Ngày 29/6, Mỹ và Iran nhất trí "tạm ngừng" các đòn tấn công, cho tàu thuyền qua lại tự do; đàm phán kỹ thuật về Hormuz và hạt nhân chuyển từ Thụy Sĩ sang Qatar. Lưu lượng qua eo biển vẫn thấp do nguy cơ mìn và UAV.</p><a class="src" href="https://www.cnn.com/2026/06/29/world/live-news/iran-war-strikes-trump" target="_blank" rel="noreferrer">CNN ↗</a></article>
+        <article class="item" data-id="w2"><h3>Động đất kép ở Venezuela: hơn 1.700 người thiệt mạng</h3><p>Số người chết sau hai trận động đất tàn phá vùng ven biển Venezuela tuần trước đã vượt 1.700; nhiều nước, trong đó có Việt Nam, cử lực lượng cứu hộ và hàng viện trợ tới hiện trường.</p><a class="src" href="https://dantri.com.vn/event/dong-dat-du-doi-tai-venezuela-9761.htm" target="_blank" rel="noreferrer">Dân trí ↗</a></article>
+        <article class="item" data-id="w3"><h3>Ukraine tập kích quy mô lớn nhiều vùng của Nga, chiến sự leo thang</h3><p>Ukraine mở đợt tập kích ban đêm vào hàng loạt vùng của Nga, bán đảo Crimea và vùng biển lân cận; Nga đáp trả bằng các cuộc tấn công vào nhiều khu vực của Ukraine khi cuộc chiến tiếp tục bào mòn cả hai bên.</p><a class="src" href="https://edition.cnn.com/world" target="_blank" rel="noreferrer">CNN ↗</a></article>
+        <article class="item" data-id="w4"><h3>Pakistan không kích khu vực biên giới Afghanistan</h3><p>Giới chức Taliban nói các cuộc không kích của Pakistan trúng làng Mandokhail (tỉnh Paktia), khiến nhiều dân thường gồm trẻ em thiệt mạng. Pakistan tuyên bố nhắm vào nơi ẩn náu của phiến quân để đáp trả các vụ tấn công.</p><a class="src" href="https://www.npr.org/sections/world/" target="_blank" rel="noreferrer">NPR ↗</a></article>
+        <article class="item" data-id="w5"><h3>Nổ thiết bị tại Monaco, ba người bị thương nặng</h3><p>Một thiết bị nổ phát nổ tại tòa nhà dân cư ở Monaco làm ba người bị thương nặng; nghi phạm bỏ trốn sang Pháp, theo nhà chức trách địa phương.</p><a class="src" href="https://www.npr.org/sections/world/" target="_blank" rel="noreferrer">NPR ↗</a></article>
+        <article class="item" data-id="w6"><h3>Nắng nóng gay gắt bao trùm châu Âu</h3><p>Đợt nắng nóng diện rộng cuối tháng 6 đang bao trùm nhiều nước châu Âu, đẩy nhiệt độ lên ngưỡng kỷ lục, kéo theo cảnh báo y tế và áp lực lên lưới điện.</p><a class="src" href="https://dantri.com.vn/event/nang-nong-gay-gat-bao-trum-chau-au-9744.htm" target="_blank" rel="noreferrer">Dân trí ↗</a></article>
+        <article class="item" data-id="w7"><h3>Israel công nhận nạn diệt chủng người Armenia, quan hệ với Thổ Nhĩ Kỳ xấu đi</h3><p>Nội các Israel thông qua đề xuất công nhận hành động chống người Armenia thời Đế chế Ottoman là nạn diệt chủng — động thái phản ánh quan hệ Israel–Thổ Nhĩ Kỳ tiếp tục xuống dốc.</p><a class="src" href="https://www.npr.org/sections/world/" target="_blank" rel="noreferrer">NPR ↗</a></article>
+        <article class="item" data-id="w8"><h3>Báo cáo LHQ: Trung Quốc trên đà vượt Mỹ ở các mục tiêu sức khỏe con người và hành tinh</h3><p>Báo cáo thường niên của Liên Hợp Quốc nhận định Trung Quốc đang "trên đà vượt Mỹ" trong các mục tiêu toàn cầu về sức khỏe con người và môi trường, phản ánh dịch chuyển trọng tâm phát triển bền vững.</p><a class="src" href="https://www.npr.org/sections/world/" target="_blank" rel="noreferrer">NPR ↗</a></article>
+      </div>
+    </section>
+    <section class="ch" style="--ch:var(--tech)">
+      <div class="chead"><span class="dot"></span><h2>Công nghệ</h2><span class="count">10</span></div>
+      <div class="body">
+        <article class="item" data-id="t1"><h3>Người dùng AI dịch chuyển từ "tiêu tốn token" sang hiệu quả chi phí</h3><p>CNBC (26/6) ghi nhận khách hàng doanh nghiệp chuyển từ "tokenmaxxing" sang tối ưu chi phí và hiệu quả, buộc OpenAI và Anthropic điều chỉnh chiến lược định giá lẫn sản phẩm.</p><a class="src" href="https://www.cnbc.com/2026/06/26/openai-anthropic-new-ai-spending-reality-as-users-shift-to-efficiency.html" target="_blank" rel="noreferrer">CNBC ↗</a></article>
+        <article class="item" data-id="t2"><h3>Làn sóng mô hình AI tháng 6: Gemini 3.5 Pro, Claude Mythos, Grok 5</h3><p>Tháng 6 chứng kiến loạt mô hình lớn đổ bộ: Google chuẩn bị Gemini 3.5 Pro (sau khi 3.5 Flash GA tại I/O), Anthropic ra Claude Mythos, còn Grok 5 của xAI cũng cập bến sau nhiều lần trì hoãn.</p><a class="src" href="https://llm-stats.com/llm-updates" target="_blank" rel="noreferrer">LLM-Stats ↗</a></article>
+        <article class="item" data-id="t3"><h3>Microsoft, Google tăng tốc mô hình AI lập trình, ép Anthropic và OpenAI</h3><p>Đầu tháng 6, Microsoft tung loạt mô hình chi phí thấp còn Google đẩy mạnh mảng AI coding — nơi Anthropic đang dẫn trước nhờ Claude Code.</p><a class="src" href="https://www.cnbc.com/2026/06/01/microsoft-and-google-take-on-anthropic-and-openai-in-ai-coding-models.html" target="_blank" rel="noreferrer">CNBC ↗</a></article>
+        <article class="item" data-id="t4"><h3>Nvidia đưa nền tảng Vera Rubin lên đám mây nửa cuối 2026</h3><p>Nvidia cho biết sản phẩm dựa trên nền tảng Vera Rubin (CPU Vera, GPU Rubin, NVLink 6, ConnectX-9, BlueField-4, Spectrum-6) sẽ được AWS, Google Cloud, Microsoft và OCI triển khai từ nửa cuối 2026.</p><a class="src" href="https://nvidianews.nvidia.com/news/rubin-platform-ai-supercomputer" target="_blank" rel="noreferrer">Nvidia ↗</a></article>
+        <article class="item" data-id="t5"><h3>Nokia và Google Cloud nhúng AI agent (Gemini) vào bộ Autonomous Networks</h3><p>Ngày 22/6, Nokia hợp tác Google Cloud nhúng các AI agent dựa trên mô hình Gemini vào bộ sản phẩm mạng tự vận hành (Autonomous Networks) của hãng.</p><a class="src" href="https://www.nokia.com/newsroom/nokia-and-google-cloud-partner-to-embed-ai-agents-built-with-googles-gemini-models-into-nokias-autonomous-network-product-suite/" target="_blank" rel="noreferrer">Nokia ↗</a></article>
+        <article class="item" data-id="t6"><h3>Nokia và AWS mở rộng hợp tác về mạng tự vận hành cho kỷ nguyên AI</h3><p>Ngày 24/6, Nokia và AWS mở rộng hợp tác nhằm cung cấp mạng tự vận hành (autonomous networks) được thiết kế cho kỷ nguyên AI.</p><a class="src" href="https://www.nokia.com/newsroom/nokia-amazon-web-services-expand-collaboration-to-deliver-autonomous-networks-built-for-the-ai-era/" target="_blank" rel="noreferrer">Nokia ↗</a></article>
+        <article class="item" data-id="t7"><h3>Nokia, t3 Broadband và Aureon triển khai mạng quang dung lượng siêu cao cho AI</h3><p>Ngày 18/6, Nokia cùng t3 Broadband và Aureon triển khai hạ tầng kết nối "hyperscale-class" cho AI bằng mạng quang dung lượng siêu cao.</p><a class="src" href="https://www.nokia.com/newsroom/nokia-t3-broadband-and-aureon-partner-to-deploy-hyperscale-class-ai-connectivity-with-ultra-high-capacity-optical-network/" target="_blank" rel="noreferrer">Nokia ↗</a></article>
+        <article class="item" data-id="t8"><h3>IPoDWDM tăng 27%/năm nhờ nhu cầu kết nối data center (DCI)</h3><p>Pluggable coherent (400ZR/OpenZR+) nhúng DWDM thẳng vào router/switch, loại bỏ lớp transponder riêng ở metro và DCI; thị trường IPoDWDM được dự báo tăng ~27%/năm, vượt 7 tỷ USD vào 2030.</p><a class="src" href="https://www.lightwaveonline.com/home/article/55385918/data-center-interconnect-dci-demands-drive-27-ipodwdm-growth" target="_blank" rel="noreferrer">Lightwave ↗</a></article>
+        <article class="item" data-id="t9"><h3>Doanh thu bán dẫn 2026 dự kiến vượt 1.000 tỷ USD, AI "ngốn" 70% chip nhớ</h3><p>Báo cáo SIA–Deloitte (1/6) ước tính doanh thu bán dẫn 2026 vượt mốc 1.000 tỷ USD nhờ data center AI; tới 70% chip nhớ sản xuất trong năm được tiêu thụ bởi các trung tâm dữ liệu AI.</p><a class="src" href="https://www.semiconductors.org/new-report-finds-semiconductors-account-for-95-of-an-ai-data-server-racks-value-encompassing-the-full-stack-of-chip-technologies/" target="_blank" rel="noreferrer">SIA ↗</a></article>
+        <article class="item" data-id="t10"><h3>Năm "ông lớn" đám mây cam kết hơn 660 tỷ USD đầu tư hạ tầng AI năm 2026</h3><p>Amazon, Microsoft, Google, Meta và Oracle cùng cam kết hơn 660 tỷ USD vốn đầu tư 2026, chủ yếu cho compute và data center AI; nút thắt lớn nhất là điện và thời gian giao chip (lead time tới 40 tuần).</p><a class="src" href="https://www.manufacturingdive.com/news/opinion-omdia-ai-semiconductor-chip-scarcity/817172/" target="_blank" rel="noreferrer">Manufacturing Dive ↗</a></article>
+      </div>
+    </section>
+  </div>
+  <footer>Nguồn lấy trực tiếp từ web · tóm tắt bằng AI, nên đối chiếu bài gốc trước khi trích dẫn.<br/>Trạng thái "đã đọc / thích" lưu trên thiết bị này. Chạm "Sao chép nhật ký" → mở Claude trên điện thoại → Dispatch vào Cowork để học gu đọc.</footer>
+</div>
+<div class="toast" id="toast"></div>
+<script>
+  var DAY = "2026-06-30";
+  var KEY = "bantin:" + DAY;
+  var QUOTES = [
+    {q:"The wound is the place where the Light enters you.", a:"Rumi"},
+    {q:"You have power over your mind — not outside events. Realize this, and you will find strength.", a:"Marcus Aurelius"},
+    {q:"Between stimulus and response there is a space. In that space is our power to choose.", a:"Viktor Frankl"},
+    {q:"Tell me, what is it you plan to do with your one wild and precious life?", a:"Mary Oliver"},
+    {q:"The quieter you become, the more you are able to hear.", a:"Ram Dass"},
+    {q:"What you seek is seeking you.", a:"Rumi"},
+    {q:"The privilege of a lifetime is to become who you truly are.", a:"Carl Jung"},
+    {q:"We accept the love we think we deserve.", a:"Stephen Chbosky"},
+    {q:"Do small things with great love.", a:"Mẹ Teresa"},
+    {q:"If you want to go fast, go alone. If you want to go far, go together.", a:"Tục ngữ châu Phi"},
+    {q:"Vô vi nhi vô bất vi — Không làm gì mà không gì là không làm được.", a:"Lão Tử"},
+    {q:"Comparison is the thief of joy.", a:"Theodore Roosevelt"},
+    {q:"The best way out is always through.", a:"Robert Frost"},
+    {q:"Fall seven times, stand up eight.", a:"Tục ngữ Nhật Bản"},
+    {q:"Hope is being able to see that there is light despite all of the darkness.", a:"Desmond Tutu"},
+    {q:"Energy and persistence conquer all things.", a:"Benjamin Franklin"},
+    {q:"Đường dài mới biết ngựa hay.", a:"Tục ngữ Việt Nam"},
+    {q:"Love is not consolation. It is light.", a:"Simone Weil"},
+    {q:"Act without expectation.", a:"Lão Tử"},
+    {q:"Courage is grace under pressure.", a:"Ernest Hemingway"},
+    {q:"What we plant in the soil of contemplation, we shall reap in the harvest of action.", a:"Meister Eckhart"},
+    {q:"Người ta lớn lên không chỉ bằng những gì nhận được, mà bằng những gì cho đi.", a:"Khuyết danh"},
+    {q:"Slow is smooth, and smooth is fast.", a:"Ngạn ngữ"},
+    {q:"Be the change you wish to see in the world.", a:"Gandhi"}
+  ];
+  var qt = document.getElementById('qtext'), qa = document.getElementById('qauthor');
+  var dayNum = Math.floor(new Date(DAY).getTime() / 86400000);
+  var qi = ((dayNum % QUOTES.length) + QUOTES.length) % QUOTES.length;
+  function paintQuote(){
+    qt.style.opacity = 0; qa.style.opacity = 0;
+    setTimeout(function(){
+      qt.textContent = QUOTES[qi].q; qa.textContent = QUOTES[qi].a;
+      qt.style.opacity = 1; qa.style.opacity = 1;
+    }, 260);
+  }
+  paintQuote();
+  var rot = setInterval(function(){ qi = (qi + 1) % QUOTES.length; paintQuote(); }, 14000);
+  document.getElementById('quoteCard').addEventListener('click', function(){
+    clearInterval(rot); qi = (qi + 1) % QUOTES.length; paintQuote();
+    rot = setInterval(function(){ qi = (qi + 1) % QUOTES.length; paintQuote(); }, 14000);
+  });
+  function load(k){ try { return JSON.parse(localStorage.getItem(KEY + ":" + k) || "{}"); } catch(e){ return {}; } }
+  function save(k, o){ try { localStorage.setItem(KEY + ":" + k, JSON.stringify(o)); } catch(e){} }
+  var readS = load("read"), likeS = load("like");
+  var items = Array.prototype.slice.call(document.querySelectorAll('.item'));
+  var TOTAL = items.length;
+  function stats(){
+    var r = Object.keys(readS).filter(function(k){return readS[k];}).length;
+    var l = Object.keys(likeS).filter(function(k){return likeS[k];}).length;
+    document.getElementById('readN').textContent = r;
+    document.getElementById('likeN').textContent = l;
+    document.getElementById('pfill').style.width = Math.round(r / TOTAL * 100) + "%";
+  }
+  items.forEach(function(it){
+    var id = it.getAttribute('data-id');
+    var acts = document.createElement('div'); acts.className = 'acts';
+    var rb = document.createElement('span'); rb.className = 'chip'; rb.innerHTML = '<span class="ic">✓</span> Đã đọc';
+    var lb = document.createElement('span'); lb.className = 'chip'; lb.innerHTML = '<span class="ic">♥</span> Thích';
+    function render(){
+      if(readS[id]){ rb.classList.add('on-read'); it.classList.add('read'); } else { rb.classList.remove('on-read'); it.classList.remove('read'); }
+      if(likeS[id]){ lb.classList.add('on-like'); } else { lb.classList.remove('on-like'); }
+    }
+    rb.addEventListener('click', function(){ readS[id] = !readS[id]; save("read", readS); render(); stats(); });
+    lb.addEventListener('click', function(){
+      likeS[id] = !likeS[id];
+      if(likeS[id]){ readS[id] = true; save("read", readS); }
+      save("like", likeS); render(); stats();
+    });
+    render(); acts.appendChild(rb); acts.appendChild(lb); it.appendChild(acts);
+  });
+  stats();
+  var toast = document.getElementById('toast'), tt;
+  function showToast(msg){ toast.textContent = msg; toast.classList.add('show'); clearTimeout(tt); tt = setTimeout(function(){ toast.classList.remove('show'); }, 2400); }
+  document.getElementById('exportBtn').addEventListener('click', function(){
+    var liked = [], read = [];
+    items.forEach(function(it){
+      var id = it.getAttribute('data-id');
+      var ch = it.closest('.ch').querySelector('h2').textContent;
+      var title = it.querySelector('h3').textContent;
+      if(likeS[id]) liked.push("[" + ch + "] " + title);
+      if(readS[id]) read.push("[" + ch + "] " + title);
+    });
+    var out = "[BẢN TIN SÁNG — REVIEW] Claude (Cowork): đây là nhật ký đọc của tôi hôm nay. Hãy đọc trước About Me, rồi cập nhật file \"About Me/reading-preferences.md\": cộng điểm cho các chủ đề/nguồn tôi THÍCH, ghi nhận cái tôi bỏ qua, và tóm tắt 1 dòng xu hướng để bản tin sáng mai ưu tiên đúng gu tôi.\n\n";
+    out += "NHẬT KÝ BẢN TIN " + DAY + "\n";
+    out += "Đã đọc: " + read.length + "/" + TOTAL + " · Đã thích: " + liked.length + "\n\n";
+    out += "✓ ĐÃ ĐỌC (" + read.length + "):\n" + (read.length ? read.join("\n") : "(chưa có)");
+    function done(){ showToast("Đã sao chép — mở Claude trên phone và Dispatch vào Cowork"); }
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(out).then(done, function(){ window.prompt("Sao chép thủ công:", out); });
+    } else { window.prompt("Sao chép thủ công:", out); }
+  });
+</script>
+</body>
+</html>
