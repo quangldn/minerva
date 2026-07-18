@@ -1,12 +1,11 @@
 <!doctype html>
 <html lang="vi">
 <head>
-<base href="../" />
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="theme-color" content="#0E1014" />
 <title>Bản tin sáng — 18 tháng 7 2026</title>
-<link rel="stylesheet" href="assets/style.css" />
+<link rel="stylesheet" href="../assets/style.css" />
 </head>
 <body>
 <div class="wrap">
@@ -15,6 +14,8 @@
     <h1>18 tháng 7 2026</h1>
     <div class="gen">3 kênh · 26 tin · quote mới mỗi ngày</div>
   </header>
+
+  <div class="wx" id="weather"></div>
 
   <div class="quote" id="quoteBox" title="Chạm để đổi câu">
     <span class="tap">chạm để đổi</span>
@@ -88,6 +89,7 @@
 </div>
 
 <script>
+window.BANTIN_BASE="../";
 window.BANTIN_DAY="2026-07-18";
 window.QUOTES=[
   {q:"Doubt kills more dreams than failure ever will.", a:"Suzy Kassem"},
@@ -106,7 +108,8 @@ window.QUOTES=[
   {q:"Sông có khúc, người có lúc.", a:"Tục ngữ Việt Nam"}
 ];
 </script>
-<script src="config.js"></script>
-<script src="assets/app.js"></script>
+<script src="../config.js"></script>
+<script src="../assets/app.js"></script>
+<script src="../assets/weather.js"></script>
 </body>
 </html>

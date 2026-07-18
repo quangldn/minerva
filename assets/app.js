@@ -55,7 +55,7 @@
     ovlTitle.textContent=title; ovlMeta.textContent=src; ovlSrc.href=url;
     ovlBody.innerHTML='<div class="ovl-note">Đang tải bản sạch…</div>';
     ovl.classList.add('show'); document.body.style.overflow='hidden';
-    fetch('read/'+DAY+'/'+slug+'.html',{cache:'no-store'}).then(function(r){ if(!r.ok) throw 0; return r.text(); })
+    fetch((window.BANTIN_BASE||'')+'read/'+DAY+'/'+slug+'.html',{cache:'no-store'}).then(function(r){ if(!r.ok) throw 0; return r.text(); })
       .then(function(html){ ovlBody.innerHTML=html; })
       .catch(function(){ ovlBody.innerHTML='<div class="ovl-note">Bản sạch cho tin này chưa có (sẽ tự tạo từ số kế tiếp). Tạm thời mở bài gốc bằng nút phía trên.</div><p>'+(el.querySelector('p')?el.querySelector('p').textContent:'')+'</p>'; });
   }
