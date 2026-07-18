@@ -1,90 +1,19 @@
 <!doctype html>
 <html lang="vi">
 <head>
+<base href="../" />
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="theme-color" content="#15181D" />
+<meta name="theme-color" content="#0E1014" />
 <title>Bản tin sáng — 18 tháng 7 2026</title>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap');
-  :root{
-    --bg:#F4F5F6; --panel:#fff; --ink:#15181D; --muted:#646B75; --line:#E5E7EA;
-    --vn:#C8453B; --world:#3B6CA8; --tech:#0F8F86;
-  }
-  *{box-sizing:border-box;}
-  body{margin:0; background:var(--bg); color:var(--ink);
-    font-family:'Be Vietnam Pro',system-ui,sans-serif; -webkit-font-smoothing:antialiased;
-    padding:22px 16px 44px;}
-  .wrap{max-width:1180px; margin:0 auto;}
-  header{background:var(--panel); border:1px solid var(--line); border-radius:18px;
-    padding:22px; margin-bottom:14px;}
-  .eyebrow{font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.12em;
-    text-transform:uppercase; color:var(--muted);}
-  h1{font-size:clamp(30px,7vw,48px); font-weight:800; letter-spacing:-.02em; line-height:1.02;
-    margin:10px 0 8px;}
-  .gen{font-family:'IBM Plex Mono',monospace; font-size:12.5px; color:var(--muted);}
-
-  /* Quote box */
-  .quote{background:linear-gradient(135deg,#15181D,#22262E); color:#fff; border-radius:16px;
-    padding:20px 22px; margin-bottom:14px; cursor:pointer; user-select:none; position:relative;
-    min-height:96px; display:flex; flex-direction:column; justify-content:center;}
-  .quote .q{font-size:clamp(16px,2.6vw,20px); font-weight:600; line-height:1.45; letter-spacing:-.01em;
-    transition:opacity .4s;}
-  .quote .a{font-family:'IBM Plex Mono',monospace; font-size:12px; color:#9AA1AB; margin-top:10px;
-    transition:opacity .4s;}
-  .quote .tap{position:absolute; top:12px; right:16px; font-family:'IBM Plex Mono',monospace;
-    font-size:10.5px; letter-spacing:.1em; text-transform:uppercase; color:#6A727C;}
-
-  /* Progress bar */
-  .progress{background:var(--panel); border:1px solid var(--line); border-radius:14px;
-    padding:12px 16px; margin-bottom:18px; display:flex; align-items:center; gap:12px; flex-wrap:wrap;}
-  .progress .track{flex:1; height:8px; background:#E5E7EA; border-radius:99px; overflow:hidden; min-width:140px;}
-  .progress .fill{height:100%; width:0%; background:linear-gradient(90deg,var(--vn),var(--world),var(--tech));
-    border-radius:99px; transition:width .35s ease;}
-  .progress .plabel{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--muted); white-space:nowrap;}
-  .btn{font-family:'IBM Plex Mono',monospace; font-size:12px; font-weight:500; cursor:pointer;
-    border:1px solid var(--line); background:var(--panel); color:var(--ink); border-radius:99px;
-    padding:7px 14px; transition:all .15s;}
-  .btn:hover{background:#15181D; color:#fff; border-color:#15181D;}
-  .btn.copied{background:var(--tech); color:#fff; border-color:var(--tech);}
-
-  .channels{display:grid; gap:14px; grid-template-columns:1fr;}
-  @media(min-width:1024px){.channels{grid-template-columns:repeat(3,1fr); align-items:start;}}
-  .ch{background:var(--panel); border:1px solid var(--line); border-radius:16px;
-    border-top:3px solid var(--ch); padding:16px 16px 6px;}
-  .chead{display:flex; align-items:center; gap:9px; padding:2px 2px 12px;}
-  .chead h2{font-size:17px; font-weight:700; margin:0;}
-  .dot{width:8px; height:8px; border-radius:50%; background:var(--ch);}
-  .count{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--muted); margin-left:auto;}
-  .body{position:relative; padding:4px 2px 12px 22px;}
-  .body::before{content:""; position:absolute; left:9px; top:6px; bottom:14px; width:2px;
-    background:linear-gradient(var(--ch),transparent); opacity:.35;}
-  .item{position:relative; padding:0 2px 18px;}
-  .item::before{content:""; position:absolute; left:-17px; top:6px; width:9px; height:9px;
-    border-radius:50%; background:var(--panel); border:2px solid var(--ch); transition:background .2s;}
-  .item.read::before{background:var(--ch);}
-  .item h3{font-size:15.5px; font-weight:700; line-height:1.3; margin:0 0 6px; letter-spacing:-.01em;}
-  .item.read h3{opacity:.55;}
-  .item p{font-size:13.8px; line-height:1.55; color:#2C313A; margin:0 0 9px;}
-  .item a{font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:var(--ch);
-    text-decoration:none; font-weight:500;}
-  .item a:hover{text-decoration:underline;}
-  .actions{display:flex; gap:7px; margin-top:9px;}
-  .act{font-family:'IBM Plex Mono',monospace; font-size:11px; cursor:pointer; user-select:none;
-    border:1px solid var(--line); background:#FAFBFB; color:var(--muted); border-radius:99px;
-    padding:4px 11px; transition:all .15s;}
-  .act:hover{border-color:var(--ch); color:var(--ch);}
-  .act.on{background:var(--ch); color:#fff; border-color:var(--ch);}
-  footer{font-family:'IBM Plex Mono',monospace; font-size:11.5px; color:var(--muted);
-    text-align:center; line-height:1.5; margin-top:18px;}
-</style>
+<link rel="stylesheet" href="assets/style.css" />
 </head>
 <body>
 <div class="wrap">
   <header>
     <div class="eyebrow">Bản tin sáng · Thứ Bảy</div>
     <h1>18 tháng 7 2026</h1>
-    <div class="gen">Cập nhật 06:10 · 3 kênh · 26 tin</div>
+    <div class="gen">3 kênh · 26 tin · quote mới mỗi ngày</div>
   </header>
 
   <div class="quote" id="quoteBox" title="Chạm để đổi câu">
@@ -104,52 +33,63 @@
     <section class="ch" style="--ch:var(--vn)">
       <div class="chead"><span class="dot"></span><h2>Việt Nam</h2><span class="count">8</span></div>
       <div class="body">
-      <article class="item" data-id="bao hiem tien gui 350 trieu"><h3>Nâng hạn mức chi trả bảo hiểm tiền gửi lên 350 triệu đồng</h3><p>Ngân hàng Nhà nước ban hành Thông tư 05/2026, nâng hạn mức chi trả bảo hiểm tiền gửi tối đa cho một người tại một tổ chức từ 125 lên 350 triệu đồng (gồm cả gốc và lãi), hiệu lực từ 13/7. Đây là bước cụ thể hóa Luật Bảo hiểm tiền gửi 2025, tăng mức bảo vệ người gửi tiền.</p><a href="https://vietnamnet.vn/chinh-thuc-nang-han-muc-bao-hiem-tien-gui-len-350-trieu-dong-2536268.html" target="_blank" rel="noreferrer">VietnamNet ↗</a></article>
-      <article class="item" data-id="xe khach cao toc phap van cau gie"><h3>Xe khách lao khỏi cao tốc Pháp Vân - Cầu Giẽ, 4 người tử vong</h3><p>Sáng 17/7, một xe khách chở 32 người lao khỏi cao tốc Pháp Vân - Cầu Giẽ, rơi xuống đường gom, khiến 4 người tử vong và nhiều người bị thương. Cơ quan chức năng đang điều tra nguyên nhân.</p><a href="https://vietnamnet.vn/ban-tin-sang-17-7-xe-khach-lao-khoi-cao-toc-phap-van-cau-gie-4-nguoi-tu-vong-2536500.html" target="_blank" rel="noreferrer">VietnamNet ↗</a></article>
-      <article class="item" data-id="lu quet lai chau son la"><h3>Lũ quét tàn phá Lai Châu, Sơn La: 1 người chết, 5 người mất tích</h3><p>Mưa lớn sáng 17/7 gây lũ quét tại các xã Mường Than, Than Uyên (Lai Châu) và Ngọc Chiến (Sơn La), làm 1 người chết, 5 người mất tích. Hàng chục nhà bị cuốn sập hoặc sạt lở, nhiều tuyến quốc lộ 32, 279, 12 bị chia cắt.</p><a href="https://vnexpress.net/lai-chau-son-la-tan-hoang-sau-lu-5098635.html" target="_blank" rel="noreferrer">VnExpress ↗</a></article>
-      <article class="item" data-id="thu tuong ung pho mua lu bac bo"><h3>Thủ tướng chỉ đạo chủ động ứng phó mưa lớn khu vực miền núi Bắc Bộ</h3><p>Trước diễn biến mưa lũ phức tạp, ngày 17/7 Thủ tướng có công điện yêu cầu các địa phương miền núi Bắc Bộ khẩn trương ứng phó, di dời dân khỏi vùng nguy cơ sạt lở, lũ quét và bảo đảm an toàn hồ đập, giao thông.</p><a href="https://thethaovanhoa.vn/thu-tuong-chinh-phu-chi-dao-chu-dong-ung-pho-voi-mua-lon-khu-vuc-mien-nui-bac-bo-20260717195610872.htm" target="_blank" rel="noreferrer">Thể thao &amp; Văn hóa ↗</a></article>
-      <article class="item" data-id="bo truong tai chinh tang truong hai con so"><h3>Bộ Tài chính: khơi thông nguồn lực cho mục tiêu tăng trưởng hai con số</h3><p>Tại hội nghị sơ kết 6 tháng chiều 17/7, Bộ trưởng Tài chính Ngô Văn Tuấn nhấn mạnh nửa cuối năm ngành tài chính phải tập trung khơi thông và sử dụng hiệu quả mọi nguồn lực, góp phần hoàn thành mục tiêu tăng trưởng kinh tế hai con số.</p><a href="https://baotintuc.vn/kinh-te/diem-tin-kinh-te-viet-nam-noi-bat-ngay-1772026-20260717205226285.htm" target="_blank" rel="noreferrer">Báo Tin Tức ↗</a></article>
-      <article class="item" data-id="vietnam ai innovation challenge 2026"><h3>Khai mạc Vietnam AI Innovation Challenge 2026, hướng tới Olympic AI quốc tế</h3><p>Ngày 17/7 tại Hà Nội, Trung tâm Đổi mới sáng tạo Quốc gia (NIC) cùng Meta, AI for Vietnam và các đối tác phát động VIC 2026 - quy tụ gần 2.500 đăng ký - đồng thời khởi động Olympic Trí tuệ nhân tạo quốc tế (IAIO) 2027 lần đầu tổ chức tại Việt Nam.</p><a href="https://dantri.com.vn/giao-duc/khai-mac-vietnam-ai-innovation-challenge-2026-huong-toi-olympic-ai-quoc-te-20260716171926195.htm" target="_blank" rel="noreferrer">Dân trí ↗</a></article>
-      <article class="item" data-id="ha noi fdi 3,23 ty usd"><h3>Hà Nội hút 3,23 tỷ USD vốn FDI nửa đầu năm, vượt mục tiêu cả năm</h3><p>Sáu tháng đầu 2026, Hà Nội thu hút khoảng 3,23 tỷ USD vốn FDI đăng ký, vượt mục tiêu cả năm, trong đó 72% vốn đổ vào khoa học công nghệ và đổi mới sáng tạo. Thành phố quyết tâm đạt tăng trưởng GRDP 11% năm nay.</p><a href="https://baodautu.vn/fdi-dat-323-ty-usd-ha-noi-tang-toc-cho-muc-tieu-tang-truong-grdp-11-d636723.html" target="_blank" rel="noreferrer">Báo Đầu tư ↗</a></article>
-      <article class="item" data-id="noi tran von ngan han cho vay dai han"><h3>Nới trần vốn ngắn hạn cho vay trung, dài hạn từ 30% lên 40%</h3><p>Từ 1/7, một thông tư mới của Ngân hàng Nhà nước nới trần tỷ lệ tối đa nguồn vốn ngắn hạn được dùng để cho vay trung và dài hạn từ 30% lên 40%. Chính sách nhằm khơi thông tín dụng cho các dự án dài hạn, hỗ trợ mục tiêu tăng trưởng.</p><a href="https://www.vietnamplus.vn/nhieu-chinh-sach-kinh-te-noi-bat-co-hieu-luc-tu-thang-72026-post1120990.vnp" target="_blank" rel="noreferrer">VietnamPlus ↗</a></article>
+      <article class="item" data-id="bao hiem tien gui 350 trieu" data-slug="bao-hiem-tien-gui-350-trieu" data-url="https://vietnamnet.vn/chinh-thuc-nang-han-muc-bao-hiem-tien-gui-len-350-trieu-dong-2536268.html" data-source="VietnamNet"><h3>Nâng hạn mức chi trả bảo hiểm tiền gửi lên 350 triệu đồng</h3><p>Ngân hàng Nhà nước ban hành Thông tư 05/2026, nâng hạn mức chi trả bảo hiểm tiền gửi tối đa cho một người tại một tổ chức từ 125 lên 350 triệu đồng (gồm cả gốc và lãi), hiệu lực từ 13/7. Đây là bước cụ thể hóa Luật Bảo hiểm tiền gửi 2025, tăng mức bảo vệ người gửi tiền.</p><a class="src" href="https://vietnamnet.vn/chinh-thuc-nang-han-muc-bao-hiem-tien-gui-len-350-trieu-dong-2536268.html" target="_blank" rel="noreferrer">VietnamNet ↗</a></article>
+      <article class="item" data-id="xe khach cao toc phap van cau gie" data-slug="xe-khach-cao-toc-phap-van-cau-gie" data-url="https://vietnamnet.vn/ban-tin-sang-17-7-xe-khach-lao-khoi-cao-toc-phap-van-cau-gie-4-nguoi-tu-vong-2536500.html" data-source="VietnamNet"><h3>Xe khách lao khỏi cao tốc Pháp Vân - Cầu Giẽ, 4 người tử vong</h3><p>Sáng 17/7, một xe khách chở 32 người lao khỏi cao tốc Pháp Vân - Cầu Giẽ, rơi xuống đường gom, khiến 4 người tử vong và nhiều người bị thương. Cơ quan chức năng đang điều tra nguyên nhân.</p><a class="src" href="https://vietnamnet.vn/ban-tin-sang-17-7-xe-khach-lao-khoi-cao-toc-phap-van-cau-gie-4-nguoi-tu-vong-2536500.html" target="_blank" rel="noreferrer">VietnamNet ↗</a></article>
+      <article class="item" data-id="lu quet lai chau son la" data-slug="lu-quet-lai-chau-son-la" data-url="https://vnexpress.net/lai-chau-son-la-tan-hoang-sau-lu-5098635.html" data-source="VnExpress"><h3>Lũ quét tàn phá Lai Châu, Sơn La: 1 người chết, 5 người mất tích</h3><p>Mưa lớn sáng 17/7 gây lũ quét tại các xã Mường Than, Than Uyên (Lai Châu) và Ngọc Chiến (Sơn La), làm 1 người chết, 5 người mất tích. Hàng chục nhà bị cuốn sập hoặc sạt lở, nhiều tuyến quốc lộ 32, 279, 12 bị chia cắt.</p><a class="src" href="https://vnexpress.net/lai-chau-son-la-tan-hoang-sau-lu-5098635.html" target="_blank" rel="noreferrer">VnExpress ↗</a></article>
+      <article class="item" data-id="thu tuong ung pho mua lu bac bo" data-slug="thu-tuong-ung-pho-mua-lu-bac-bo" data-url="https://thethaovanhoa.vn/thu-tuong-chinh-phu-chi-dao-chu-dong-ung-pho-voi-mua-lon-khu-vuc-mien-nui-bac-bo-20260717195610872.htm" data-source="Thể thao &amp; Văn hóa"><h3>Thủ tướng chỉ đạo chủ động ứng phó mưa lớn khu vực miền núi Bắc Bộ</h3><p>Trước diễn biến mưa lũ phức tạp, ngày 17/7 Thủ tướng có công điện yêu cầu các địa phương miền núi Bắc Bộ khẩn trương ứng phó, di dời dân khỏi vùng nguy cơ sạt lở, lũ quét và bảo đảm an toàn hồ đập, giao thông.</p><a class="src" href="https://thethaovanhoa.vn/thu-tuong-chinh-phu-chi-dao-chu-dong-ung-pho-voi-mua-lon-khu-vuc-mien-nui-bac-bo-20260717195610872.htm" target="_blank" rel="noreferrer">Thể thao &amp; Văn hóa ↗</a></article>
+      <article class="item" data-id="bo truong tai chinh tang truong hai con so" data-slug="bo-truong-tai-chinh-tang-truong-hai-con-so" data-url="https://baotintuc.vn/kinh-te/diem-tin-kinh-te-viet-nam-noi-bat-ngay-1772026-20260717205226285.htm" data-source="Báo Tin Tức"><h3>Bộ Tài chính: khơi thông nguồn lực cho mục tiêu tăng trưởng hai con số</h3><p>Tại hội nghị sơ kết 6 tháng chiều 17/7, Bộ trưởng Tài chính Ngô Văn Tuấn nhấn mạnh nửa cuối năm ngành tài chính phải tập trung khơi thông và sử dụng hiệu quả mọi nguồn lực, góp phần hoàn thành mục tiêu tăng trưởng kinh tế hai con số.</p><a class="src" href="https://baotintuc.vn/kinh-te/diem-tin-kinh-te-viet-nam-noi-bat-ngay-1772026-20260717205226285.htm" target="_blank" rel="noreferrer">Báo Tin Tức ↗</a></article>
+      <article class="item" data-id="vietnam ai innovation challenge 2026" data-slug="vietnam-ai-innovation-challenge-2026" data-url="https://dantri.com.vn/giao-duc/khai-mac-vietnam-ai-innovation-challenge-2026-huong-toi-olympic-ai-quoc-te-20260716171926195.htm" data-source="Dân trí"><h3>Khai mạc Vietnam AI Innovation Challenge 2026, hướng tới Olympic AI quốc tế</h3><p>Ngày 17/7 tại Hà Nội, Trung tâm Đổi mới sáng tạo Quốc gia (NIC) cùng Meta, AI for Vietnam và các đối tác phát động VIC 2026 - quy tụ gần 2.500 đăng ký - đồng thời khởi động Olympic Trí tuệ nhân tạo quốc tế (IAIO) 2027 lần đầu tổ chức tại Việt Nam.</p><a class="src" href="https://dantri.com.vn/giao-duc/khai-mac-vietnam-ai-innovation-challenge-2026-huong-toi-olympic-ai-quoc-te-20260716171926195.htm" target="_blank" rel="noreferrer">Dân trí ↗</a></article>
+      <article class="item" data-id="ha noi fdi 3,23 ty usd" data-slug="ha-noi-fdi-3-23-ty-usd" data-url="https://baodautu.vn/fdi-dat-323-ty-usd-ha-noi-tang-toc-cho-muc-tieu-tang-truong-grdp-11-d636723.html" data-source="Báo Đầu tư"><h3>Hà Nội hút 3,23 tỷ USD vốn FDI nửa đầu năm, vượt mục tiêu cả năm</h3><p>Sáu tháng đầu 2026, Hà Nội thu hút khoảng 3,23 tỷ USD vốn FDI đăng ký, vượt mục tiêu cả năm, trong đó 72% vốn đổ vào khoa học công nghệ và đổi mới sáng tạo. Thành phố quyết tâm đạt tăng trưởng GRDP 11% năm nay.</p><a class="src" href="https://baodautu.vn/fdi-dat-323-ty-usd-ha-noi-tang-toc-cho-muc-tieu-tang-truong-grdp-11-d636723.html" target="_blank" rel="noreferrer">Báo Đầu tư ↗</a></article>
+      <article class="item" data-id="noi tran von ngan han cho vay dai han" data-slug="noi-tran-von-ngan-han-cho-vay-dai-han" data-url="https://www.vietnamplus.vn/nhieu-chinh-sach-kinh-te-noi-bat-co-hieu-luc-tu-thang-72026-post1120990.vnp" data-source="VietnamPlus"><h3>Nới trần vốn ngắn hạn cho vay trung, dài hạn từ 30% lên 40%</h3><p>Từ 1/7, một thông tư mới của Ngân hàng Nhà nước nới trần tỷ lệ tối đa nguồn vốn ngắn hạn được dùng để cho vay trung và dài hạn từ 30% lên 40%. Chính sách nhằm khơi thông tín dụng cho các dự án dài hạn, hỗ trợ mục tiêu tăng trưởng.</p><a class="src" href="https://www.vietnamplus.vn/nhieu-chinh-sach-kinh-te-noi-bat-co-hieu-luc-tu-thang-72026-post1120990.vnp" target="_blank" rel="noreferrer">VietnamPlus ↗</a></article>
       </div>
     </section>
     <section class="ch" style="--ch:var(--world)">
       <div class="chead"><span class="dot"></span><h2>Thế giới</h2><span class="count">8</span></div>
       <div class="body">
-      <article class="item" data-id="my khong kich iran dem thu 6"><h3>Mỹ không kích Iran đêm thứ 6, đánh sập loạt cầu ở Bandar Abbas</h3><p>Rạng sáng 17/7, Mỹ tiếp tục đợt không kích thứ 6 liên tiếp vào Iran, nhắm 6 cây cầu và một ga đường sắt gần cảng Bandar Abbas nhìn ra eo Hormuz; hãng thông tấn Iran cho biết ít nhất 8 người chết, 20 người bị thương ở tỉnh Hormozgan.</p><a href="https://www.cnn.com/2026/07/17/world/live-news/iran-war-trump" target="_blank" rel="noreferrer">CNN ↗</a></article>
-      <article class="item" data-id="hai tau dau chay eo hormuz thuy loi"><h3>Hai tàu dầu bốc cháy vì thủy lôi khi qua eo Hormuz</h3><p>Sáng thứ Bảy, Vệ binh Cách mạng Iran cho biết hai tàu dầu bốc cháy sau khi cố đi qua một tuyến có thủy lôi ở eo Hormuz - vốn bị Iran phong tỏa từ khi chiến sự nổ ra. Giao thông qua eo biển chở gần 1/5 lượng dầu thế giới gần như tê liệt.</p><a href="https://www.cnn.com/2026/07/17/world/live-news/iran-war-trump" target="_blank" rel="noreferrer">CNN ↗</a></article>
-      <article class="item" data-id="iran na ten lua drone kuwait"><h3>Iran nã tên lửa, drone vào Kuwait làm binh sĩ bị thương</h3><p>Quân đội Kuwait cho biết một loạt tên lửa và drone của Iran hôm 17/7 làm bị thương một số binh sĩ, sau khi Tehran tấn công các căn cứ và hạ tầng trọng yếu tại quốc gia vùng Vịnh này. Iran mở rộng trả đũa nhằm vào các đồng minh của Mỹ trong khu vực.</p><a href="https://www.npr.org/2026/07/17/g-s1-134158/us-iran-war-updates" target="_blank" rel="noreferrer">NPR ↗</a></article>
-      <article class="item" data-id="andy burnham lanh dao cong dang thu tuong anh"><h3>Andy Burnham đắc cử lãnh đạo Công đảng, sắp làm Thủ tướng Anh</h3><p>Ông Andy Burnham được bầu làm lãnh đạo Công đảng cầm quyền, mở đường trở thành Thủ tướng Anh từ thứ Hai, thay ông Keir Starmer đã từ chức hồi tháng 6. Ông cam kết phân bổ lại quyền lực khỏi Westminster và ứng phó sự trỗi dậy của đảng Reform UK.</p><a href="https://www.yahoo.com/news/world/articles/latest-news-bulletin-july-17th-100016452.html" target="_blank" rel="noreferrer">Yahoo News ↗</a></article>
-      <article class="item" data-id="bo truong quoc phong ukraine fedorov tu chuc"><h3>Bộ trưởng Quốc phòng Ukraine Fedorov từ chức, có quyền bộ trưởng mới</h3><p>Ông Mykhailo Fedorov rời ghế Bộ trưởng Quốc phòng, viện dẫn mâu thuẫn với Tổng tư lệnh Syrsky. Tổng thống Zelensky gọi xung đột giữa Bộ Quốc phòng và bộ tổng tham mưu là &#x27;có tính hệ thống&#x27; và cử ông Yevhen Khmara làm quyền bộ trưởng, chờ Quốc hội phê chuẩn.</p><a href="https://www.justsecurity.org/147767/early-edition-july-17-2026/" target="_blank" rel="noreferrer">Just Security ↗</a></article>
-      <article class="item" data-id="co phieu chip ban thao dau brent 87"><h3>Cổ phiếu bán dẫn bị bán tháo, dầu Brent vượt 87 USD</h3><p>Ngày 17/7, chỉ số bán dẫn PHLX (SOX) hướng tới mức giảm 20% từ đỉnh khi nhà đầu tư lo ngại chi phí AI; S&amp;P 500 lùi về 7.534 điểm. Cùng lúc, dầu Brent vượt 87 USD/thùng do phần bù rủi ro từ căng thẳng Trung Đông.</p><a href="https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-july-17-2026" target="_blank" rel="noreferrer">TheStreet ↗</a></article>
-      <article class="item" data-id="nhat sua luat ke vi hoang gia"><h3>Nhật Bản sửa luật kế vị hoàng gia, vẫn giữ nguyên tắc chỉ nam giới</h3><p>Bản sửa đổi luật kế vị hoàng gia Nhật giữ nguyên quy định chỉ nam giới dòng đích được lên ngôi, nên thứ tự kế vị vẫn thuộc về em trai Nhật hoàng Naruhito rồi đến cháu là Hoàng tử Hisahito. Giới phê bình nói cải cách chưa giải quyết nguy cơ đứt gãy dài hạn.</p><a href="https://www.yahoo.com/news/world/articles/latest-news-bulletin-july-17th-100016452.html" target="_blank" rel="noreferrer">Yahoo News ↗</a></article>
-      <article class="item" data-id="hoa hoan trai tre mo coi algeria"><h3>Hỏa hoạn trại trẻ mồ côi gần Algiers, 11 người chết</h3><p>Một vụ cháy tại trại trẻ mồ côi gần thủ đô Algiers của Algeria khiến 11 người thiệt mạng, trong đó có trẻ em, và 19 người bị thương. Nhà chức trách đang điều tra nguyên nhân đám cháy.</p><a href="https://havanatimes.org/news/international-news-briefs-for-friday-july-17-2026/" target="_blank" rel="noreferrer">Havana Times ↗</a></article>
+      <article class="item" data-id="my khong kich iran dem thu 6" data-slug="my-khong-kich-iran-dem-thu-6" data-url="https://www.cnn.com/2026/07/17/world/live-news/iran-war-trump" data-source="CNN"><h3>Mỹ không kích Iran đêm thứ 6, đánh sập loạt cầu ở Bandar Abbas</h3><p>Rạng sáng 17/7, Mỹ tiếp tục đợt không kích thứ 6 liên tiếp vào Iran, nhắm 6 cây cầu và một ga đường sắt gần cảng Bandar Abbas nhìn ra eo Hormuz; hãng thông tấn Iran cho biết ít nhất 8 người chết, 20 người bị thương ở tỉnh Hormozgan.</p><a class="src" href="https://www.cnn.com/2026/07/17/world/live-news/iran-war-trump" target="_blank" rel="noreferrer">CNN ↗</a></article>
+      <article class="item" data-id="hai tau dau chay eo hormuz thuy loi" data-slug="hai-tau-dau-chay-eo-hormuz-thuy-loi" data-url="https://www.cnn.com/2026/07/17/world/live-news/iran-war-trump" data-source="CNN"><h3>Hai tàu dầu bốc cháy vì thủy lôi khi qua eo Hormuz</h3><p>Sáng thứ Bảy, Vệ binh Cách mạng Iran cho biết hai tàu dầu bốc cháy sau khi cố đi qua một tuyến có thủy lôi ở eo Hormuz - vốn bị Iran phong tỏa từ khi chiến sự nổ ra. Giao thông qua eo biển chở gần 1/5 lượng dầu thế giới gần như tê liệt.</p><a class="src" href="https://www.cnn.com/2026/07/17/world/live-news/iran-war-trump" target="_blank" rel="noreferrer">CNN ↗</a></article>
+      <article class="item" data-id="iran na ten lua drone kuwait" data-slug="iran-na-ten-lua-drone-kuwait" data-url="https://www.npr.org/2026/07/17/g-s1-134158/us-iran-war-updates" data-source="NPR"><h3>Iran nã tên lửa, drone vào Kuwait làm binh sĩ bị thương</h3><p>Quân đội Kuwait cho biết một loạt tên lửa và drone của Iran hôm 17/7 làm bị thương một số binh sĩ, sau khi Tehran tấn công các căn cứ và hạ tầng trọng yếu tại quốc gia vùng Vịnh này. Iran mở rộng trả đũa nhằm vào các đồng minh của Mỹ trong khu vực.</p><a class="src" href="https://www.npr.org/2026/07/17/g-s1-134158/us-iran-war-updates" target="_blank" rel="noreferrer">NPR ↗</a></article>
+      <article class="item" data-id="andy burnham lanh dao cong dang thu tuong anh" data-slug="andy-burnham-lanh-dao-cong-dang-thu-tuong-anh" data-url="https://www.yahoo.com/news/world/articles/latest-news-bulletin-july-17th-100016452.html" data-source="Yahoo News"><h3>Andy Burnham đắc cử lãnh đạo Công đảng, sắp làm Thủ tướng Anh</h3><p>Ông Andy Burnham được bầu làm lãnh đạo Công đảng cầm quyền, mở đường trở thành Thủ tướng Anh từ thứ Hai, thay ông Keir Starmer đã từ chức hồi tháng 6. Ông cam kết phân bổ lại quyền lực khỏi Westminster và ứng phó sự trỗi dậy của đảng Reform UK.</p><a class="src" href="https://www.yahoo.com/news/world/articles/latest-news-bulletin-july-17th-100016452.html" target="_blank" rel="noreferrer">Yahoo News ↗</a></article>
+      <article class="item" data-id="bo truong quoc phong ukraine fedorov tu chuc" data-slug="bo-truong-quoc-phong-ukraine-fedorov-tu-chuc" data-url="https://www.justsecurity.org/147767/early-edition-july-17-2026/" data-source="Just Security"><h3>Bộ trưởng Quốc phòng Ukraine Fedorov từ chức, có quyền bộ trưởng mới</h3><p>Ông Mykhailo Fedorov rời ghế Bộ trưởng Quốc phòng, viện dẫn mâu thuẫn với Tổng tư lệnh Syrsky. Tổng thống Zelensky gọi xung đột giữa Bộ Quốc phòng và bộ tổng tham mưu là &#x27;có tính hệ thống&#x27; và cử ông Yevhen Khmara làm quyền bộ trưởng, chờ Quốc hội phê chuẩn.</p><a class="src" href="https://www.justsecurity.org/147767/early-edition-july-17-2026/" target="_blank" rel="noreferrer">Just Security ↗</a></article>
+      <article class="item" data-id="co phieu chip ban thao dau brent 87" data-slug="co-phieu-chip-ban-thao-dau-brent-87" data-url="https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-july-17-2026" data-source="TheStreet"><h3>Cổ phiếu bán dẫn bị bán tháo, dầu Brent vượt 87 USD</h3><p>Ngày 17/7, chỉ số bán dẫn PHLX (SOX) hướng tới mức giảm 20% từ đỉnh khi nhà đầu tư lo ngại chi phí AI; S&amp;P 500 lùi về 7.534 điểm. Cùng lúc, dầu Brent vượt 87 USD/thùng do phần bù rủi ro từ căng thẳng Trung Đông.</p><a class="src" href="https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-july-17-2026" target="_blank" rel="noreferrer">TheStreet ↗</a></article>
+      <article class="item" data-id="nhat sua luat ke vi hoang gia" data-slug="nhat-sua-luat-ke-vi-hoang-gia" data-url="https://www.yahoo.com/news/world/articles/latest-news-bulletin-july-17th-100016452.html" data-source="Yahoo News"><h3>Nhật Bản sửa luật kế vị hoàng gia, vẫn giữ nguyên tắc chỉ nam giới</h3><p>Bản sửa đổi luật kế vị hoàng gia Nhật giữ nguyên quy định chỉ nam giới dòng đích được lên ngôi, nên thứ tự kế vị vẫn thuộc về em trai Nhật hoàng Naruhito rồi đến cháu là Hoàng tử Hisahito. Giới phê bình nói cải cách chưa giải quyết nguy cơ đứt gãy dài hạn.</p><a class="src" href="https://www.yahoo.com/news/world/articles/latest-news-bulletin-july-17th-100016452.html" target="_blank" rel="noreferrer">Yahoo News ↗</a></article>
+      <article class="item" data-id="hoa hoan trai tre mo coi algeria" data-slug="hoa-hoan-trai-tre-mo-coi-algeria" data-url="https://havanatimes.org/news/international-news-briefs-for-friday-july-17-2026/" data-source="Havana Times"><h3>Hỏa hoạn trại trẻ mồ côi gần Algiers, 11 người chết</h3><p>Một vụ cháy tại trại trẻ mồ côi gần thủ đô Algiers của Algeria khiến 11 người thiệt mạng, trong đó có trẻ em, và 19 người bị thương. Nhà chức trách đang điều tra nguyên nhân đám cháy.</p><a class="src" href="https://havanatimes.org/news/international-news-briefs-for-friday-july-17-2026/" target="_blank" rel="noreferrer">Havana Times ↗</a></article>
       </div>
     </section>
     <section class="ch" style="--ch:var(--tech)">
       <div class="chead"><span class="dot"></span><h2>Công nghệ</h2><span class="count">10</span></div>
       <div class="body">
-      <article class="item" data-id="google ra mat gemini 3.5 pro"><h3>Google ra mắt Gemini 3.5 Pro sau khi xây lại từ đầu</h3><p>Google chính thức ra mắt Gemini 3.5 Pro ngày 17/7. Bản phát hành trễ 6 tuần vì Google loại bỏ mô hình nền ban đầu và huấn luyện lại từ đầu sau khi phát hiện lỗi cấu trúc ở khả năng gọi công cụ đệ quy. Mô hình có cửa sổ ngữ cảnh 2 triệu token và chế độ suy luận Deep Think ở gói Ultra.</p><a href="https://www.buildfastwithai.com/blogs/ai-news-today-july-17-2026" target="_blank" rel="noreferrer">BuildFastWithAI ↗</a></article>
-      <article class="item" data-id="moonshot kimi k3 mo hinh mo lon nhat"><h3>Moonshot ra Kimi K3 - mô hình mở lớn nhất thế giới, 2,8 nghìn tỷ tham số</h3><p>Ngày 16/7, Moonshot AI (Trung Quốc) phát hành Kimi K3, mô hình MoE mở 2,8 nghìn tỷ tham số với ngữ cảnh 1 triệu token. K3 ra mắt ở vị trí số 1 bảng Frontend Code Arena (1.679 Elo), vượt Opus 4.8 và GPT-5.5 trên nhiều bài kiểm tra; trọng số dự kiến mở hoàn toàn trước 27/7.</p><a href="https://www.tomshardware.com/tech-industry/artificial-intelligence/moonshot-releases-2-8-trillion-parameter-kimi-k3" target="_blank" rel="noreferrer">Tom&#x27;s Hardware ↗</a></article>
-      <article class="item" data-id="thinking machines inkling mira murati"><h3>Thinking Machines của Mira Murati ra mô hình đầu tay Inkling</h3><p>Thinking Machines Lab - startup do cựu CTO OpenAI Mira Murati dẫn dắt - phát hành mô hình đầu tiên Inkling ngày 16/7. Đây là mô hình 975 tỷ tham số dạng open-weight, cho phép nhà phát triển tải về và tùy biến, đánh dấu bước ra mắt được chờ đợi của phòng lab này.</p><a href="https://www.buildfastwithai.com/blogs/ai-news-today-july-17-2026" target="_blank" rel="noreferrer">BuildFastWithAI ↗</a></article>
-      <article class="item" data-id="xi khai mac waic to chuc hop tac ai the gioi"><h3>Ông Tập khai mạc Hội nghị AI Thế giới, lập Tổ chức Hợp tác AI toàn cầu</h3><p>Ngày 17/7, Chủ tịch Trung Quốc Tập Cận Bình lần đầu đọc diễn văn khai mạc Hội nghị AI Thế giới (WAIC) ở Thượng Hải, kêu gọi quản trị AI là &#x27;bản giao hưởng hợp tác toàn cầu&#x27;. Trước đó 29 nước ký lập Tổ chức Hợp tác AI Thế giới đặt trụ sở tại Thượng Hải.</p><a href="https://www.npr.org/2026/07/17/nx-s1-5897285/chinas-xi-calls-for-step-up-of-global-effort-in-ai-as-us-curbs-squeeze-chinas-tech-access" target="_blank" rel="noreferrer">NPR ↗</a></article>
-      <article class="item" data-id="openai gpt 5.6 cong khai"><h3>OpenAI đưa GPT-5.6 ra công khai với tầng Sol, Terra, Luna</h3><p>OpenAI công khai GPT-5.6 sau đợt rà soát của Bộ Thương mại Mỹ vốn giới hạn bản xem trước cho khoảng 20 tổ chức. Dòng gồm Sol (chủ lực, có chế độ subagent Ultra), Terra nhắm chất lượng ngang GPT-5.5 với nửa chi phí, và Luna là tầng phản hồi nhanh.</p><a href="https://thursdai.news/releases/2026-07" target="_blank" rel="noreferrer">ThursdAI ↗</a></article>
-      <article class="item" data-id="transceiver quang 1.6t giao hang lon"><h3>Transceiver quang 1.6T vào chu kỳ giao hàng lớn cho hạ tầng AI</h3><p>Transceiver quang 1,6T bước vào giai đoạn xuất xưởng quy mô lớn năm 2026, dự báo đạt hơn 5 triệu module (từ 1 triệu năm 2025). Microsoft dự kiến triển khai 2 triệu module 1,6T - tương đương khoảng 3 tỷ USD - cho hạ tầng trung tâm dữ liệu AI.</p><a href="https://www.digitimes.com/news/a20260421PD207/shipments-growth-data-2026-capacity.html" target="_blank" rel="noreferrer">DIGITIMES ↗</a></article>
-      <article class="item" data-id="cignal ai 800zr ip over dwdm meta"><h3>800ZR+ thành chuẩn kết nối AI: hyperscaler đẩy mạnh IP-over-DWDM</h3><p>Cignal AI nâng mạnh dự báo module coherent 800ZR/800ZR+ lên hơn 200.000 chiếc trong 2026, khi các hyperscaler dẫn đầu là Meta dùng 800ZR+ để nối các trung tâm dữ liệu phân tán theo mô hình IP-over-DWDM. Doanh thu pluggable coherent 800G được dự báo vượt 1 tỷ USD năm nay.</p><a href="https://www.lightreading.com/cloud/800g-coherent-pluggable-shipments-to-exceed-1b-revenue-in-2026-cignalai" target="_blank" rel="noreferrer">Light Reading ↗</a></article>
-      <article class="item" data-id="nvidia 4 ty usd lumentum coherent"><h3>Nvidia rót 4 tỷ USD vào Lumentum và Coherent, khẳng định &#x27;quang hóa&#x27;</h3><p>Khoản đầu tư chiến lược 4 tỷ USD của Nvidia vào Lumentum và Coherent được xem là sự xác nhận tầm quan trọng của chuỗi cung ứng quang. Lumentum nắm 50-60% thị phần chip laser EML cao cấp; Coherent bán hết laser InP tới 2027 - linh kiện then chốt cho transceiver 1,6T.</p><a href="https://www.futuriom.com/articles/news/ofc-2026-heralds-optical-shift-for-ai-factories/2026/03" target="_blank" rel="noreferrer">Futuriom ↗</a></article>
-      <article class="item" data-id="broadcom canh bao chip nho khung hoang"><h3>Broadcom cảnh báo triển vọng chip AI, khủng hoảng chip nhớ lan rộng</h3><p>Đợt bán tháo bán dẫn 17/7 bắt nguồn từ triển vọng thận trọng về chip AI của Broadcom, cộng với khủng hoảng chip nhớ khi Micron chuyển sản lượng sang khách trung tâm dữ liệu biên lợi nhuận cao. Arm, AMD, Oracle, Marvell mất 5% trở lên; nhóm nhớ Micron, SK Hynix chịu áp lực.</p><a href="https://www.kavout.com/market-lens/what-triggered-the-recent-semiconductor-sell-off" target="_blank" rel="noreferrer">Kavout ↗</a></article>
-      <article class="item" data-id="anthropic sonnet 5 gia gioi thieu"><h3>Anthropic ra Claude Sonnet 5, hiệu năng gần Opus với giá giới thiệu</h3><p>Anthropic phát hành Sonnet 5 với hiệu năng gần Opus 4.8 nhưng giá giới thiệu chỉ 2 USD đầu vào và 10 USD đầu ra cho mỗi triệu token đến 31/8. Hãng cũng khôi phục Fable 5 và Mythos 5 toàn cầu sau khi kiểm soát xuất khẩu được nới, kèm bộ phân loại an ninh mạng mới.</p><a href="https://thursdai.news/releases/2026-07" target="_blank" rel="noreferrer">ThursdAI ↗</a></article>
+      <article class="item" data-id="google ra mat gemini 3.5 pro" data-slug="google-ra-mat-gemini-3-5-pro" data-url="https://www.buildfastwithai.com/blogs/ai-news-today-july-17-2026" data-source="BuildFastWithAI"><h3>Google ra mắt Gemini 3.5 Pro sau khi xây lại từ đầu</h3><p>Google chính thức ra mắt Gemini 3.5 Pro ngày 17/7. Bản phát hành trễ 6 tuần vì Google loại bỏ mô hình nền ban đầu và huấn luyện lại từ đầu sau khi phát hiện lỗi cấu trúc ở khả năng gọi công cụ đệ quy. Mô hình có cửa sổ ngữ cảnh 2 triệu token và chế độ suy luận Deep Think ở gói Ultra.</p><a class="src" href="https://www.buildfastwithai.com/blogs/ai-news-today-july-17-2026" target="_blank" rel="noreferrer">BuildFastWithAI ↗</a></article>
+      <article class="item" data-id="moonshot kimi k3 mo hinh mo lon nhat" data-slug="moonshot-kimi-k3-mo-hinh-mo-lon-nhat" data-url="https://www.tomshardware.com/tech-industry/artificial-intelligence/moonshot-releases-2-8-trillion-parameter-kimi-k3" data-source="Tom&#x27;s Hardware"><h3>Moonshot ra Kimi K3 - mô hình mở lớn nhất thế giới, 2,8 nghìn tỷ tham số</h3><p>Ngày 16/7, Moonshot AI (Trung Quốc) phát hành Kimi K3, mô hình MoE mở 2,8 nghìn tỷ tham số với ngữ cảnh 1 triệu token. K3 ra mắt ở vị trí số 1 bảng Frontend Code Arena (1.679 Elo), vượt Opus 4.8 và GPT-5.5 trên nhiều bài kiểm tra; trọng số dự kiến mở hoàn toàn trước 27/7.</p><a class="src" href="https://www.tomshardware.com/tech-industry/artificial-intelligence/moonshot-releases-2-8-trillion-parameter-kimi-k3" target="_blank" rel="noreferrer">Tom&#x27;s Hardware ↗</a></article>
+      <article class="item" data-id="thinking machines inkling mira murati" data-slug="thinking-machines-inkling-mira-murati" data-url="https://www.buildfastwithai.com/blogs/ai-news-today-july-17-2026" data-source="BuildFastWithAI"><h3>Thinking Machines của Mira Murati ra mô hình đầu tay Inkling</h3><p>Thinking Machines Lab - startup do cựu CTO OpenAI Mira Murati dẫn dắt - phát hành mô hình đầu tiên Inkling ngày 16/7. Đây là mô hình 975 tỷ tham số dạng open-weight, cho phép nhà phát triển tải về và tùy biến, đánh dấu bước ra mắt được chờ đợi của phòng lab này.</p><a class="src" href="https://www.buildfastwithai.com/blogs/ai-news-today-july-17-2026" target="_blank" rel="noreferrer">BuildFastWithAI ↗</a></article>
+      <article class="item" data-id="xi khai mac waic to chuc hop tac ai the gioi" data-slug="xi-khai-mac-waic-to-chuc-hop-tac-ai-the-gioi" data-url="https://www.npr.org/2026/07/17/nx-s1-5897285/chinas-xi-calls-for-step-up-of-global-effort-in-ai-as-us-curbs-squeeze-chinas-tech-access" data-source="NPR"><h3>Ông Tập khai mạc Hội nghị AI Thế giới, lập Tổ chức Hợp tác AI toàn cầu</h3><p>Ngày 17/7, Chủ tịch Trung Quốc Tập Cận Bình lần đầu đọc diễn văn khai mạc Hội nghị AI Thế giới (WAIC) ở Thượng Hải, kêu gọi quản trị AI là &#x27;bản giao hưởng hợp tác toàn cầu&#x27;. Trước đó 29 nước ký lập Tổ chức Hợp tác AI Thế giới đặt trụ sở tại Thượng Hải.</p><a class="src" href="https://www.npr.org/2026/07/17/nx-s1-5897285/chinas-xi-calls-for-step-up-of-global-effort-in-ai-as-us-curbs-squeeze-chinas-tech-access" target="_blank" rel="noreferrer">NPR ↗</a></article>
+      <article class="item" data-id="openai gpt 5.6 cong khai" data-slug="openai-gpt-5-6-cong-khai" data-url="https://thursdai.news/releases/2026-07" data-source="ThursdAI"><h3>OpenAI đưa GPT-5.6 ra công khai với tầng Sol, Terra, Luna</h3><p>OpenAI công khai GPT-5.6 sau đợt rà soát của Bộ Thương mại Mỹ vốn giới hạn bản xem trước cho khoảng 20 tổ chức. Dòng gồm Sol (chủ lực, có chế độ subagent Ultra), Terra nhắm chất lượng ngang GPT-5.5 với nửa chi phí, và Luna là tầng phản hồi nhanh.</p><a class="src" href="https://thursdai.news/releases/2026-07" target="_blank" rel="noreferrer">ThursdAI ↗</a></article>
+      <article class="item" data-id="transceiver quang 1.6t giao hang lon" data-slug="transceiver-quang-1-6t-giao-hang-lon" data-url="https://www.digitimes.com/news/a20260421PD207/shipments-growth-data-2026-capacity.html" data-source="DIGITIMES"><h3>Transceiver quang 1.6T vào chu kỳ giao hàng lớn cho hạ tầng AI</h3><p>Transceiver quang 1,6T bước vào giai đoạn xuất xưởng quy mô lớn năm 2026, dự báo đạt hơn 5 triệu module (từ 1 triệu năm 2025). Microsoft dự kiến triển khai 2 triệu module 1,6T - tương đương khoảng 3 tỷ USD - cho hạ tầng trung tâm dữ liệu AI.</p><a class="src" href="https://www.digitimes.com/news/a20260421PD207/shipments-growth-data-2026-capacity.html" target="_blank" rel="noreferrer">DIGITIMES ↗</a></article>
+      <article class="item" data-id="cignal ai 800zr ip over dwdm meta" data-slug="cignal-ai-800zr-ip-over-dwdm-meta" data-url="https://www.lightreading.com/cloud/800g-coherent-pluggable-shipments-to-exceed-1b-revenue-in-2026-cignalai" data-source="Light Reading"><h3>800ZR+ thành chuẩn kết nối AI: hyperscaler đẩy mạnh IP-over-DWDM</h3><p>Cignal AI nâng mạnh dự báo module coherent 800ZR/800ZR+ lên hơn 200.000 chiếc trong 2026, khi các hyperscaler dẫn đầu là Meta dùng 800ZR+ để nối các trung tâm dữ liệu phân tán theo mô hình IP-over-DWDM. Doanh thu pluggable coherent 800G được dự báo vượt 1 tỷ USD năm nay.</p><a class="src" href="https://www.lightreading.com/cloud/800g-coherent-pluggable-shipments-to-exceed-1b-revenue-in-2026-cignalai" target="_blank" rel="noreferrer">Light Reading ↗</a></article>
+      <article class="item" data-id="nvidia 4 ty usd lumentum coherent" data-slug="nvidia-4-ty-usd-lumentum-coherent" data-url="https://www.futuriom.com/articles/news/ofc-2026-heralds-optical-shift-for-ai-factories/2026/03" data-source="Futuriom"><h3>Nvidia rót 4 tỷ USD vào Lumentum và Coherent, khẳng định &#x27;quang hóa&#x27;</h3><p>Khoản đầu tư chiến lược 4 tỷ USD của Nvidia vào Lumentum và Coherent được xem là sự xác nhận tầm quan trọng của chuỗi cung ứng quang. Lumentum nắm 50-60% thị phần chip laser EML cao cấp; Coherent bán hết laser InP tới 2027 - linh kiện then chốt cho transceiver 1,6T.</p><a class="src" href="https://www.futuriom.com/articles/news/ofc-2026-heralds-optical-shift-for-ai-factories/2026/03" target="_blank" rel="noreferrer">Futuriom ↗</a></article>
+      <article class="item" data-id="broadcom canh bao chip nho khung hoang" data-slug="broadcom-canh-bao-chip-nho-khung-hoang" data-url="https://www.kavout.com/market-lens/what-triggered-the-recent-semiconductor-sell-off" data-source="Kavout"><h3>Broadcom cảnh báo triển vọng chip AI, khủng hoảng chip nhớ lan rộng</h3><p>Đợt bán tháo bán dẫn 17/7 bắt nguồn từ triển vọng thận trọng về chip AI của Broadcom, cộng với khủng hoảng chip nhớ khi Micron chuyển sản lượng sang khách trung tâm dữ liệu biên lợi nhuận cao. Arm, AMD, Oracle, Marvell mất 5% trở lên; nhóm nhớ Micron, SK Hynix chịu áp lực.</p><a class="src" href="https://www.kavout.com/market-lens/what-triggered-the-recent-semiconductor-sell-off" target="_blank" rel="noreferrer">Kavout ↗</a></article>
+      <article class="item" data-id="anthropic sonnet 5 gia gioi thieu" data-slug="anthropic-sonnet-5-gia-gioi-thieu" data-url="https://thursdai.news/releases/2026-07" data-source="ThursdAI"><h3>Anthropic ra Claude Sonnet 5, hiệu năng gần Opus với giá giới thiệu</h3><p>Anthropic phát hành Sonnet 5 với hiệu năng gần Opus 4.8 nhưng giá giới thiệu chỉ 2 USD đầu vào và 10 USD đầu ra cho mỗi triệu token đến 31/8. Hãng cũng khôi phục Fable 5 và Mythos 5 toàn cầu sau khi kiểm soát xuất khẩu được nới, kèm bộ phân loại an ninh mạng mới.</p><a class="src" href="https://thursdai.news/releases/2026-07" target="_blank" rel="noreferrer">ThursdAI ↗</a></article>
       </div>
     </section>
   </div>
 
-  <footer>Nguồn lấy trực tiếp từ web · tóm tắt bằng AI, nên đối chiếu bài gốc trước khi trích dẫn.</footer>
+  <footer>Nguồn lấy trực tiếp từ web · tóm tắt bằng AI, nên đối chiếu bài gốc trước khi trích dẫn.<br/>Thích một tin sẽ tự ghi vào sổ; chạm "Bản sạch" để đọc nguyên bản không quảng cáo.</footer>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<div class="ovl" id="ovl">
+  <div class="ovl-card">
+    <div class="ovl-bar"><span class="sp"></span><button class="btn" id="ovlCopy">⧉ Copy link</button><a class="btn" id="ovlSrc" target="_blank" rel="noreferrer">Bài gốc ↗</a><button class="btn" id="ovlClose">✕ Đóng</button></div>
+    <h2 class="ovl-title" id="ovlTitle"></h2>
+    <div class="ovl-meta" id="ovlMeta"></div>
+    <div class="ovl-body" id="ovlBody"></div>
+  </div>
 </div>
 
 <script>
-var DAY = "2026-07-18";
-var QUOTES = [
+window.BANTIN_DAY="2026-07-18";
+window.QUOTES=[
   {q:"Doubt kills more dreams than failure ever will.", a:"Suzy Kassem"},
   {q:"Việc hôm nay chớ để ngày mai.", a:"Tục ngữ Việt Nam"},
   {q:"The quality of your life is the quality of your relationships.", a:"Tony Robbins"},
@@ -165,88 +105,8 @@ var QUOTES = [
   {q:"The way to get started is to quit talking and begin doing.", a:"Walt Disney"},
   {q:"Sông có khúc, người có lúc.", a:"Tục ngữ Việt Nam"}
 ];
-
-// ---- Quote rotator ----
-var qi = Math.floor(Math.random()*QUOTES.length);
-var qText = document.getElementById('qText');
-var qAuthor = document.getElementById('qAuthor');
-function renderQuote(){
-  qText.style.opacity=0; qAuthor.style.opacity=0;
-  setTimeout(function(){
-    qText.textContent = '“'+QUOTES[qi].q+'”';
-    qAuthor.textContent = '— '+QUOTES[qi].a;
-    qText.style.opacity=1; qAuthor.style.opacity=1;
-  },220);
-}
-function nextQuote(){ qi=(qi+1)%QUOTES.length; renderQuote(); }
-renderQuote();
-var qTimer = setInterval(nextQuote, 14000);
-document.getElementById('quoteBox').addEventListener('click', function(){
-  nextQuote(); clearInterval(qTimer); qTimer=setInterval(nextQuote,14000);
-});
-
-// ---- Read / Like tracking + progress ----
-var STORE = 'bantin-'+DAY;
-var state = {};
-try{ state = JSON.parse(localStorage.getItem(STORE)||'{}'); }catch(e){ state={}; }
-function save(){ try{ localStorage.setItem(STORE, JSON.stringify(state)); }catch(e){} }
-
-var listItems = Array.prototype.slice.call(document.querySelectorAll('.item'));
-var total = listItems.length;
-
-function updateProgress(){
-  var read = listItems.filter(function(el){ return state[el.dataset.id] && state[el.dataset.id].read; }).length;
-  document.getElementById('progFill').style.width = (read/total*100)+'%';
-  document.getElementById('progLabel').textContent = read+'/'+total;
-}
-
-listItems.forEach(function(el){
-  var id = el.dataset.id;
-  var st = state[id] || {read:false, like:false};
-  state[id] = st;
-  var ch = el.closest('.ch').querySelector('h2').textContent.trim();
-  st.channel = ch;
-  st.title = el.querySelector('h3').textContent.trim();
-
-  var actions = document.createElement('div');
-  actions.className='actions';
-  var bRead = document.createElement('span'); bRead.className='act'; bRead.textContent='Đã đọc';
-  var bLike = document.createElement('span'); bLike.className='act'; bLike.textContent='Thích';
-  actions.appendChild(bRead); actions.appendChild(bLike);
-  el.appendChild(actions);
-
-  function paint(){
-    if(st.read){ el.classList.add('read'); bRead.classList.add('on'); } else { el.classList.remove('read'); bRead.classList.remove('on'); }
-    if(st.like){ bLike.classList.add('on'); } else { bLike.classList.remove('on'); }
-  }
-  bRead.addEventListener('click', function(){ st.read=!st.read; if(!st.read){st.like=false;} paint(); save(); updateProgress(); });
-  bLike.addEventListener('click', function(){ st.like=!st.like; if(st.like){st.read=true;} paint(); save(); updateProgress(); });
-  paint();
-});
-updateProgress();
-save();
-
-// ---- Copy review log (with review command) ----
-document.getElementById('copyBtn').addEventListener('click', function(){
-  var liked=[], read=[], skipped=[];
-  listItems.forEach(function(el){
-    var st = state[el.dataset.id];
-    var line = '- ['+st.channel+'] '+st.title;
-    if(st.like) liked.push(line);
-    else if(st.read) read.push(line);
-    else skipped.push(line);
-  });
-  var out = 'Cập nhật reading-preferences.md từ nhật ký đọc Bản tin sáng '+DAY+'.\n';
-  out += 'Áp quy ước điểm: THÍCH +2, ĐỌC (không thích) +1, BỎ QUA -1 cho chủ đề & nguồn tương ứng; ghi 1 dòng xu hướng và nhật ký review.\n\n';
-  out += 'THÍCH ('+liked.length+'):\n'+(liked.join('\n')||'- (không có)')+'\n\n';
-  out += 'ĐỌC ('+read.length+'):\n'+(read.join('\n')||'- (không có)')+'\n\n';
-  out += 'BỎ QUA ('+skipped.length+'):\n'+(skipped.join('\n')||'- (không có)')+'\n';
-  var btn = this;
-  function done(){ btn.textContent='Đã sao chép ✓'; btn.classList.add('copied'); setTimeout(function(){ btn.textContent='Sao chép nhật ký'; btn.classList.remove('copied'); },2000); }
-  if(navigator.clipboard && navigator.clipboard.writeText){
-    navigator.clipboard.writeText(out).then(done, function(){ window.prompt('Sao chép nhật ký:', out); });
-  } else { window.prompt('Sao chép nhật ký:', out); }
-});
 </script>
+<script src="config.js"></script>
+<script src="assets/app.js"></script>
 </body>
 </html>
