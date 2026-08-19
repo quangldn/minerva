@@ -1,0 +1,54 @@
+<h1>Cerebras CS-4 rack systems juice chips for every last drop of AI performance</h1>
+<p><em>The Register · 2026-08-19</em></p>
+<p><strong>Next-gen systems double per-chip performance while cramming 3x as many into a rack</strong></p>
+<img src="https://image.theregister.com/5289328.jpg" alt="" />
+<p>If high-speed AI inference is what you’re after, memory bandwidth is the bottleneck to beat. At a mind-numbing 21.6 petabytes per second (PB/s) of memory bandwidth, Cerebras' dinner-plate-sized AI accelerators were already 1,000x faster than Nvidia's or AMD’s best GPUs.</p>
+<p>The chip newcomer unveiled its next-gen Wafer Scale Engine (WSE) and Nexus rack systems on Tuesday. Cerebras aims to extend that lead by boosting throughput per watt tenfold over the previous generation.</p>
+<h2>Putting the 'T' in Turbo</h2>
+<p>Cerebras accomplishes this in a couple of ways. But, from what we can tell, the primary lever comes from squeezing its chips for every hertz they’ve got. The newly announced WSE-3T — the “T” here stands for “Turbo” — promises twice the compute, memory fabric, and I/O bandwidth of the now two-year-old WSE-3.</p>
+<p>Yet, if you look at the specs, you’ll notice it accomplishes this using the same process tech, wafer area size, transistor count, core count, and SRAM capacity. That's because the WSE-3T isn't new silicon. Instead, Cerebras tells us it's just pushing its existing wafer scale engine harder.</p>
+<table>
+<tr><th></th><th>WSE-3</th><th>WSE-3T</th></tr>
+<tr><td>Wafer</td><td>46,225 mm2</td><td>46,225 mm2</td></tr>
+<tr><td>Process Node</td><td>TSMC 5nm</td><td>TSMC 5nm</td></tr>
+<tr><td>Transistor count</td><td>4 Trillion</td><td>4 Trillion</td></tr>
+<tr><td>Cores</td><td>900,000</td><td>900,000</td></tr>
+<tr><td>SRAM</td><td>44 GB</td><td>44 GB</td></tr>
+<tr><td>Sparse FP16</td><td>125 PFLOPS</td><td>250 PFLOPS</td></tr>
+<tr><td>Dense FP16</td><td>12.5 PFLOPS</td><td>25 PFLOPS</td></tr>
+<tr><td>Memory bandwidth</td><td>21.6 PB/s</td><td>43.2 PB/s</td></tr>
+<tr><td>I/O bandwidth</td><td>1.2 Tbps</td><td>2.4 Tbps</td></tr>
+<tr><td>TDP (wafer)</td><td>15 kW</td><td>33 kW estimated</td></tr>
+<tr><td>TDP (System)</td><td>23 kW</td><td>46 kW estimated</td></tr>
+</table>
+<p>The main innovation this time around seems to be related to power delivery, which is apparently so efficient that they’re able to push twice the power through the chip, which “enables higher operating frequencies and faster token generation.”</p>
+<p>How much higher does it clock? By our estimate, Cerebras is now running the silicon at 2.8 GHz, up from 1.4 GHz last gen, which would be quite the accomplishment.</p>
+<p>In any case, each WSE-3T boasts 250 petaFLOPS of AI compute, 44 GB of SRAM (that’s not a typo, there really is that much SRAM on there), good for 43.2 PB/s of memory bandwidth, and 2.4 Tbps of off-die connectivity.</p>
+<p>On paper that sounds more impressive than it really is. AMD and Nvidia’s latest GPUs offer 4 to 5 petaFLOPS of dense FP16 compute or 35 to 50 petaFLOPS at FP4. Cerebras’ headline performance figure relies heavily on sparsity, which as a general rule doesn't benefit LLM inference.</p>
+<p>Assuming the same 10x sparsity we saw with the WSE-3, the WSE-3T’s dense FP16 performance should be closer to 25 petaFLOPS, which is still impressive, just not as impressive as the chipmaker would have you believe.</p>
+<p>We also suspect the WSE-3T’s peak memory bandwidth is purely theoretical. During LLM inference, the WSE-3 lacked the compute necessary to saturate its SRAM on its own, and we have no reason to believe the Turbo variant will be any different.</p>
+<p>However, this time around Cerebras isn’t trying to run the entire inference stack on its own accelerators. Instead, it has partnered with Amazon Web Services (AWS) and AMD to offload the compute-intensive prompt processing bits of the inference pipeline onto their respective Trainium XPUs and Instinct GPUs.</p>
+<p>At least for inference, Cerebras’ chips now function primarily as decode accelerators, similar to how Nvidia is using Groq — not to be confused with Elon Musk’s Grok family of models — LPUs in its LPX rack systems.</p>
+<p>The major benefit for Cerebras is its chips have a whack ton of SRAM on board. So, instead of needing 2,000 LPUs to run a trillion-parameter model, Cerebras can get away with using a few dozen, depending on the precision at which the weights are stored.</p>
+<p>Curiously, Cerebras opted to double performance this generation rather than boost SRAM capacity, which hasn’t increased meaningfully since the WSE-2 launched five years ago.</p>
+<p>In a disaggregated inference environment where prefill is handled by GPUs, we’d have expected to see Cerebras prioritize SRAM capacity over compute. However, given that these disaggregated compute architectures are a relatively new phenomenon, it’s possible Cerebras was already too far along in production to pivot.</p>
+<p>This likely explains the Turbo naming convention. If Cerebras plans to continue down this path, we expect the WSE-4, which is presumably still coming, to offer only modest performance gains at FP16 while roughly doubling SRAM capacity.</p>
+<h2>Cerebras goes rackscale</h2>
+<p>Cerebras' latest generation of wafer scale accelerators also sees the company get serious about rack-scale compute architectures.</p>
+<p>Much like Nvidia’s NVL72 and AMD’s Helios racks, Cerebras’ CS-4 makes the leap from a monolithic system to a modular architecture that breaks out compute, power delivery, and cabling for easier deployment, maintenance, and upgrades.</p>
+<p>The company’s chips are now housed in what it calls a “backpack” form factor, a sort of self-contained system with all the control electronics on board.</p>
+<p>Each CS-4 can be equipped with up to three of these backpacks, which, as their name suggests, plug into the back of the rack, while the front of the rack is dedicated to the power shelves used to feed the beast. Cabling presumably runs down the center of the system. We're guessing it's probably not an OCP-compliant design, but when your chip is the size of a charcuterie board, it never was going to be.</p>
+<p>With 3x the accelerators per system, power consumption has unsurprisingly increased. Cerebras hasn’t said how much power the racks will suck back, but it has said that its more efficient power delivery means it can push twice as many watts through the chip. The WSE-3 was already a hot chip at 15 kW at the wafer level and around 23 kW at the system level. This means we’re probably looking at around 46 kW for each CS-4 backpack and a total system power of between 120 kW and 140 kW.</p>
+<p>A few years ago, that’d have been a monstrous amount of power, even for a liquid-cooled machine. Today, the machine looks positively conservative next to the 240 to 250 kW rack systems coming from AMD and Nvidia later this year.</p>
+<h2>Killing latency by ditching the switch</h2>
+<p>Even with 132 GB of SRAM memory per rack, you’re still going to need a lot of racks to run any reasonably sized model, which means I/O is a major consideration.</p>
+<p>It just so happens that the new racks and silicon that power them have gotten some beefy upgrades in this respect.</p>
+<p>Each chip is equipped with 2.4 Tbps of chip-to-chip bandwidth, up from 1.2 Tbps. But arguably the more important improvement is to latency, which thanks to some clever tricks has been cut from five microseconds down to just two.</p>
+<p>That’s because unlike GPUs, which rely heavily on bandwidth-intensive tensor and expert parallelism to multiply their compute and effective memory bandwidth, Cerebras' chips are already so fast they can get away with using pipeline parallelism.</p>
+<p>Pipeline parallelism is about as simple as multi-accelerator inference gets. Model weights are distributed across each accelerator and work is performed sequentially, one chip after another, hence the name pipeline parallelism. While interconnect bandwidth isn’t as much of an issue, pipeline parallelism does benefit from very low latency connections.</p>
+<p>Cerebras is able to lower its interconnect latency in a pretty simple way: Get rid of all the extra switches and just have the chips talk to one another.</p>
+<p>This is a pretty big departure from what a lot of AI chip designers have been doing with their own rack-scale designs. AWS for example ditched its chip-to-chip mesh in favor of a switched fabric in its Trainium3 accelerators, which we looked at in detail late last year.</p>
+<p>Cerebras tells us it's using a 2D torus, which you can think of as a grid where the ends wrap around to the other side. The topology, the company says, can support models up to 50 trillion parameters in size, though no such model currently exists to our knowledge.</p>
+<p>And for models that do exist, it appears the parts will be quite performant, achieving speeds of up to 4,400 tok/s per user in gpt-oss-120b on a single CS-4 system, compared to around 350 tok/s on the fastest GPU-based inference service today, according to the benchmarking gurus at Artificial Analysis.</p>
+<p>Cerebras' new mesh topology isn’t mandatory. If you wanted to connect the chips using a switched fabric, there’s nothing stopping you. Like basically every modern chip, it supports RDMA over converged Ethernet (RoCE), too. The compromise is your latencies may be a bit higher.</p>
+<p>The chip upstart expects the first CS-4-based systems to come online later this quarter.</p>
